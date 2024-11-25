@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres:13.0-alpine
+    ports:
+      - "5433:5432" # Mapeia a porta 5432 do contêiner para a porta 5433 no localhost
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "api_games"
+      POSTGRES_PASSWORD: "api_games"
+      POSTGRES_DB: "db_api_games"
+    networks:
+      - backend
+    deploy:
+      resources:
+        limits:
+          memory: 500M
+        reservations:
+          memory: 50M
+    
+volumes:
+  postgres_data:
+
+networks:
+  backend:
+    driver: bridge
