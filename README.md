@@ -9,7 +9,7 @@ tags:
 versão: 1.0
 ---
 
-\#Autor/AnaliceLeite \#Versão/1 \#Data/2024-10-24\
+\#Autor/AnaliceLeite \#Versão/1 \#Data/2024-10-24
 
 ## Descrição da API
 
