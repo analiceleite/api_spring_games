@@ -9,15 +9,17 @@ tags:
 versão: 1.0
 ---
 
-\#Autor/AnaliceLeite \#Versão/1 \#Data/2024-10-24
-\## Descrição da API
+\#Autor/AnaliceLeite \#Versão/1 \#Data/2024-10-24\
+
+## Descrição da API
 
 A API de Jogos, desenvolvida com **Spring Boot**, **JPA** e **Docker** (usando PostgreSQL), permite realizar operações **CRUD** em uma base de dados de jogos. Ela organiza informações como nome, descrição, preços e categorias, retornando dados em formato JSON, ideal para integrar jogos em aplicações e facilitar a comunicação entre front-end e back-end.
 
 ## Docker Setup
 
 A aplicação utiliza o **PostgreSQL** como banco de dados, e para facilitar o desenvolvimento, utilizei o Docker para configurar o ambiente. Abaixo estão os detalhes sobre como configurar o banco de dados PostgreSQL usando uma imagem Docker.
-\### Docker Compose
+
+### Docker Compose
 
 O arquivo `docker-compose.yml` inclui a configuração do serviço de banco de dados PostgreSQL. A configuração mapeia a porta do banco de dados para a porta local e define as variáveis de ambiente necessárias para o PostgreSQL, como o usuário, senha e o nome do banco de dados.
 
