@@ -21,21 +21,6 @@ public class GameController {
         this.gameRepository = gameRepository;
     }
 
-    //* Criar jogo
-    @PostMapping
-    public ResponseEntity<ApiResponse> createGame(@Valid @RequestBody Game game) {
-        game.calculateCurrentPrice();
-
-        if (gameRepository.existsByName(game.getName())) {
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                    .body(new ApiResponse(409, "Jogo com este nome já existe!", null));
-        }
-
-        Game savedGame = gameRepository.save(game);
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(new ApiResponse(201, "Jogo criado com sucesso!", savedGame));
-    }
-
     //* Listar jogos
     @GetMapping
     public ResponseEntity<ApiResponse> getAllGames() {
@@ -56,6 +41,21 @@ public class GameController {
         return game.map(g -> ResponseEntity.ok(new ApiResponse(200, "Jogo encontrado.", g)))
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND)
                         .body(new ApiResponse(404, "Jogo não encontrado!", null)));
+    }
+
+    //* Criar jogo
+    @PostMapping
+    public ResponseEntity<ApiResponse> createGame(@Valid @RequestBody Game game) {
+        game.calculateCurrentPrice();
+
+        if (gameRepository.existsByName(game.getName())) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body(new ApiResponse(409, "Jogo com este nome já existe!", null));
+        }
+
+        Game savedGame = gameRepository.save(game);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(new ApiResponse(201, "Jogo criado com sucesso!", savedGame));
     }
 
     //* Editar jogo por ID
