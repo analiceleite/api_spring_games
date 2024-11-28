@@ -104,6 +104,8 @@ spring.datasource.password=api_games
 
 ## Rodando a API localmente
 
+Você pode utilizar qualquer SGBD da sua preferência, eu realizei os testes com DBeaver e Postgres.
+
 Depois que o contêiner com o banco de dados estiver em execução, você pode configurar e iniciar a aplicação com os seguintes passos:
 
 1.  Na raiz do projeto, compile e instale as dependências executando:
@@ -294,6 +296,13 @@ http://localhost:8080/api/games
     "message": "Jogo não encontrado!", 
     "data": null
 }
+```
+## Swagger
+
+Para visualizar a documentação da API utilizando o Swagger, basta acessar esse endpoint:
+
+``` bash
+http://localhost:8080/swagger-ui/index.html
 ```
 
 ## Implementações Futuras
