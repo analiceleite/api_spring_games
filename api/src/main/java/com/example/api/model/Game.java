@@ -128,18 +128,23 @@ public class Game {
 
     @PreUpdate
     public void calculateCurrentPrice() {
+        calculateCurrentPrice(this.oldPrice, this.discount);
+    }
+
+    public void calculateCurrentPrice(Double oldPrice, Double discount) {
         if (oldPrice == null || oldPrice < 0) {
             throw new IllegalArgumentException("O preço antigo deve ser maior que 0.");
         }
-
+    
         if (discount == null || discount < 0) {
             discount = 0.0;
         }
-
+    
         if (discount > oldPrice) {
             throw new IllegalArgumentException("O desconto não pode ser maior que o preço antigo.");
         }
-
+    
         this.currentPrice = oldPrice - discount;
     }
+    
 }

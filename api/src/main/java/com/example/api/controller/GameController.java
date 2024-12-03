@@ -46,7 +46,7 @@ public class GameController {
     //* Criar jogo
     @PostMapping
     public ResponseEntity<ApiResponse> createGame(@Valid @RequestBody Game game) {
-        game.calculateCurrentPrice();
+        game.calculateCurrentPrice(game.getOldPrice(), game.getDiscount());
 
         if (gameRepository.existsByName(game.getName())) {
             return ResponseEntity.status(HttpStatus.CONFLICT)
